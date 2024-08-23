@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: webserver
+spec:
+  selector:
+    matchLabels:
+      agent: webserver
+  template:
+    metadata:
+      labels:
+        agent: webserver
+    spec:
+      containers:
+      - name: webserver
+        image: nginx
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule

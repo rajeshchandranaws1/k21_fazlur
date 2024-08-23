@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: manual-pod
+spec:
+  containers:
+  - name: manual-cont
+    image: nginx
+  nodeName: master
